@@ -2,4 +2,13 @@
     bootstrap="tests/bootstrap.php"
     colors="true"
 >
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">classes</directory>
+        </include>
+        <report>
+            <html outputDirectory="tests/logs/report" lowUpperBound="50" highLowerBound="90"/>
+            <text outputFile="tests/logs/coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>
+        </report>
+    </coverage>
 </phpunit>
