@@ -70,4 +70,26 @@ class ListingBasicTest extends TestCase
         $this->assertEquals($data['email'], $listing->getEmail());
         $this->assertEquals($data['twitter'], $listing->getTwitter());
     }
+
+    /** @test */
+    public function toArrayMethodReturnsCorrectValues()
+    {
+        $data = [
+            'id' => 1,
+            'title' => 'Title',
+            'website' => 'https://www.example.org',
+            'email' => 'jane.doe@example.org',
+            'twitter' => 'JaneDoe',
+        ];
+
+        $listing = new ListingBasic($data);
+
+        $array = $listing->toArray();
+
+        $this->assertEquals($data['id'], $array['id']);
+        $this->assertEquals($data['title'], $array['title']);
+        $this->assertEquals($data['website'], $array['website']);
+        $this->assertEquals($data['email'], $array['email']);
+        $this->assertEquals($data['twitter'], $array['twitter']);
+    }
 }
