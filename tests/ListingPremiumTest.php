@@ -16,4 +16,16 @@ class ListingPremiumTest extends TestCase
 
         $this->assertEquals('premium', (new ListingPremium($data))->getStatus());
     }
+
+    /** @test */
+    public function descriptionCanBeSetAndRetrieved()
+    {
+        $data = [
+            'id' => 1,
+            'title' => 'Title',
+            'description' => 'Description',
+        ];
+
+        $this->assertEquals($data['description'], (new ListingPremium($data))->getDescription());
+    }
 }
