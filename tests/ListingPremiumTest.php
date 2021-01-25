@@ -26,4 +26,13 @@ class ListingPremiumTest extends TestCase
 
         $this->assertEquals($data['description'], (new ListingPremium($data))->getDescription());
     }
+
+    /** @test */
+    public function displayAllowedTags()
+    {
+        $this->assertEquals(
+            htmlspecialchars('<p><br><b><strong><em><u><ol><ul><li>'),
+            ListingPremium::displayAllowedTags()
+        );
+    }
 }

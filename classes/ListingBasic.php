@@ -39,11 +39,11 @@ class ListingBasic
         if (isset($data['twitter'])) {
             $this->setTwitter($data['twitter']);
         }
-        if (isset($data['status'])) {
-            $this->setStatus($data['status']);
-        }
         if (isset($data['image'])) {
             $this->setImage($data['image']);
+        }
+        if (isset($data['status'])) {
+            $this->setStatus($data['status']);
         }
     }
 

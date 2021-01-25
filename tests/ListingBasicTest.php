@@ -51,7 +51,7 @@ class ListingBasicTest extends TestCase
     }
 
     /** @test */
-    public function getMethodsReturnCorrectValues()
+    public function setsAndGetsCorrectValues()
     {
         $data = [
             'id' => 1,
@@ -60,6 +60,7 @@ class ListingBasicTest extends TestCase
             'email' => 'jane.doe@example.org',
             'twitter' => 'JaneDoe',
             'image' => 'https://example.org/image.jpg',
+            'status' => 'basic',
         ];
 
         $listing = new ListingBasic($data);
@@ -70,6 +71,7 @@ class ListingBasicTest extends TestCase
         $this->assertEquals($data['email'], $listing->getEmail());
         $this->assertEquals($data['twitter'], $listing->getTwitter());
         $this->assertEquals($data['image'], $listing->getImage());
+        $this->assertEquals($data['status'], $listing->getStatus());
     }
 
     /** @test */
@@ -82,6 +84,7 @@ class ListingBasicTest extends TestCase
             'email' => 'jane.doe@example.org',
             'twitter' => 'JaneDoe',
             'image' => 'https://example.org/image.jpg',
+            'status' => 'basic',
         ];
 
         $listing = new ListingBasic($data);
@@ -94,5 +97,43 @@ class ListingBasicTest extends TestCase
         $this->assertEquals($data['email'], $array['email']);
         $this->assertEquals($data['twitter'], $array['twitter']);
         $this->assertEquals($data['image'], $array['image']);
+        $this->assertEquals($data['status'], $array['status']);
+    }
+
+    /** @test */
+    public function setsWebsiteCorrectly()
+    {
+        $data = [
+            'id' => 1,
+            'title' => 'Title',
+        ];
+
+        $listing = new ListingBasic($data);
+
+        $listing->setWebsite('');
+        $this->assertNull($listing->getWebsite());
+
+        $listing->setWebsite('example.org');
+        $this->assertEquals('http://example.org', $listing->getWebsite());
+
+        $listing->setWebsite('http://example.org');
+        $this->assertEquals('http://example.org', $listing->getWebsite());
+    }
+
+    /** @test */
+    public function setsStatusCorrectly()
+    {
+        $data = [
+            'id' => 1,
+            'title' => 'Title',
+        ];
+
+        $listing = new ListingBasic($data);
+
+        $listing->setStatus(null);
+        $this->assertEquals('basic', $listing->getStatus());
+
+        $listing->setStatus('inactive');
+        $this->assertEquals('inactive', $listing->getStatus());
     }
 }
