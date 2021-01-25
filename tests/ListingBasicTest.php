@@ -1,0 +1,31 @@
+<?php
+require __DIR__ .'/../classes/ListingBasic.php';
+
+use PHPUnit\Framework\TestCase;
+
+class ListingBasicTest extends TestCase
+{
+    /** @test */
+    public function throwsExceptionWhenDataUnavailable()
+    {
+        $this->expectException(Exception::class);
+
+        new ListingBasic;
+    }
+
+    /** @test */
+    public function throwsExceptionWhenIdIsNotSet()
+    {
+        $this->expectException(Exception::class);
+
+        new ListingBasic(['title' => 'Title']);
+    }
+
+    /** @test */
+    public function throwsExceptionWhenTitleIsNotSet()
+    {
+        $this->expectException(Exception::class);
+
+        new ListingBasic(['id' => 1]);
+    }
+}
