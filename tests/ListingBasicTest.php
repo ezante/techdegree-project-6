@@ -28,4 +28,15 @@ class ListingBasicTest extends TestCase
 
         new ListingBasic(['id' => 1]);
     }
+
+    /** @test */
+    public function canCreateObjectWithIdAndTitleOnly()
+    {
+        $data = [
+            'id' => 1,
+            'title' => 'Title',
+        ];
+
+        $this->assertIsObject(new ListingBasic($data));
+    }
 }
