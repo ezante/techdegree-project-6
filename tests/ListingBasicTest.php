@@ -60,6 +60,7 @@ class ListingBasicTest extends TestCase
             'website' => 'https://www.example.org',
             'email' => 'jane.doe@example.org',
             'twitter' => 'JaneDoe',
+            'image' => 'https://example.org/image.jpg',
         ];
 
         $listing = new ListingBasic($data);
@@ -69,6 +70,7 @@ class ListingBasicTest extends TestCase
         $this->assertEquals($data['website'], $listing->getWebsite());
         $this->assertEquals($data['email'], $listing->getEmail());
         $this->assertEquals($data['twitter'], $listing->getTwitter());
+        $this->assertEquals($data['image'], $listing->getImage());
     }
 
     /** @test */
@@ -80,6 +82,7 @@ class ListingBasicTest extends TestCase
             'website' => 'https://www.example.org',
             'email' => 'jane.doe@example.org',
             'twitter' => 'JaneDoe',
+            'image' => 'https://example.org/image.jpg',
         ];
 
         $listing = new ListingBasic($data);
@@ -91,5 +94,6 @@ class ListingBasicTest extends TestCase
         $this->assertEquals($data['website'], $array['website']);
         $this->assertEquals($data['email'], $array['email']);
         $this->assertEquals($data['twitter'], $array['twitter']);
+        $this->assertEquals($data['image'], $array['image']);
     }
 }
