@@ -121,6 +121,23 @@ class ListingBasicTest extends TestCase
     }
 
     /** @test */
+    public function setsTwitterCorrectly()
+    {
+        $data = [
+            'id' => 1,
+            'title' => 'Title',
+        ];
+
+        $listing = new ListingBasic($data);
+
+        $listing->setTwitter('JaneDoe');
+        $this->assertEquals('JaneDoe', $listing->getTwitter());
+
+        $listing->setTwitter('@JaneDoe');
+        $this->assertEquals('JaneDoe', $listing->getTwitter());
+    }
+
+    /** @test */
     public function setsStatusCorrectly()
     {
         $data = [
